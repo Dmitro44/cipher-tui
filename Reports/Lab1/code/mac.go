@@ -1,0 +1,1 @@
+../../../internal/crypto/gost/mac.go

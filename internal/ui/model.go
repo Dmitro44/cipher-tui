@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"encoding/hex"
@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"go-cipher/crypto/gost"
+	"go-cipher/internal/crypto/gost"
 
 	"github.com/charmbracelet/bubbles/key"
 	tea "github.com/charmbracelet/bubbletea"

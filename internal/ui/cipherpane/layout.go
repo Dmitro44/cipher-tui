@@ -1,12 +1,12 @@
-package ui
+package cipherpane
 
 const (
 	// Panel dimensions
 	LeftPanelWidth = 30
-	PanelMargin    = 2
+	PanelMargin    = 3
 
 	// Layout offsets
-	RightPanelWidthOffset = 8
+	RightPanelWidthOffset = 4
 	ContentHeightOffset   = 8
 	LeftPanelHeightOffset = 4
 	InternalWidthOffset   = 2

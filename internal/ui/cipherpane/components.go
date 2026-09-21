@@ -1,4 +1,4 @@
-package ui
+package cipherpane
 
 import (
 	"os"
@@ -50,37 +50,22 @@ func newFilepicker() filepicker.Model {
 	return fp
 }
 
-func NewModel() model {
-	m := model{
-		Filepicker:   newFilepicker(),
-		Method:       Simple,
-		Mode:         Encrypt,
-		Focus:        FocusInput,
-		Input:        newTextarea("Type text you want to cipher..."),
-		Output:       newOutputTextarea("Result will appear here..."),
-		SaveFilename: newTextinput("output.txt"),
-		Key:          newTextinput("Enter key..."),
-		Keymap: keymap{
-			quit: key.NewBinding(
-				key.WithKeys("esc", "ctrl+c"),
-			),
-			next: key.NewBinding(
-				key.WithKeys("tab"),
-			),
-			prev: key.NewBinding(
-				key.WithKeys("shift+tab"),
-			),
-			copy: key.NewBinding(
-				key.WithKeys("ctrl+d"),
-			),
-			clearInput: key.NewBinding(
-				key.WithKeys("alt+d"),
-			),
-			clearKey: key.NewBinding(
-				key.WithKeys("ctrl+c"),
-			),
-		},
+func newPaneKeymap() PaneKeymap {
+	return PaneKeymap{
+		next: key.NewBinding(
+			key.WithKeys("tab"),
+		),
+		prev: key.NewBinding(
+			key.WithKeys("shift+tab"),
+		),
+		copy: key.NewBinding(
+			key.WithKeys("ctrl+d"),
+		),
+		clearInput: key.NewBinding(
+			key.WithKeys("alt+d"),
+		),
+		clearKey: key.NewBinding(
+			key.WithKeys("ctrl+k"),
+		),
 	}
-
-	return m
 }

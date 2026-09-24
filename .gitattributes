@@ -1,0 +1,3 @@
+# Exclude lab report sources from GitHub language statistics.
+*.typ linguist-documentation=true
+*.csl linguist-documentation=true

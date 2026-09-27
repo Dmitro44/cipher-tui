@@ -22,10 +22,12 @@ func unpad(data []byte) []byte {
 
 // For mac gen
 func zeroPad(data []byte) []byte {
-	padded := make([]byte, len(data))
-	if rem := len(data) % 8; rem != 0 {
-		padded = make([]byte, len(data)+8-rem)
-		copy(padded, data)
+	rem := len(data) % 8
+	if rem == 0 {
+		return data
 	}
+
+	padded := make([]byte, len(data)+8-rem)
+	copy(padded, data)
 	return padded
 }

@@ -5,13 +5,18 @@ import (
 	"encoding/binary"
 )
 
+func parts(block, key []byte, rounds int) (uint32, uint32) {
+	second, first := BlockEncryptParts(block, key, rounds)
+	return first, second
+}
+
 func MACProduce(data, key []byte, l int) []byte {
-	if l > 32 {
-		panic("l can't be more than 32")
+	if l <= 0 || l > 32 {
+		panic("l can't be less than 1 or more than 32")
 	}
 	padded := zeroPad(data)
 
-	n1, n2 := BlockEncryptParts(padded, key, 16)
+	n1, n2 := parts(padded, key, 16)
 
 	for i := 8; i < len(padded); i += 8 {
 		w1 := binary.LittleEndian.Uint32(padded[i : i+4])
@@ -24,14 +29,13 @@ func MACProduce(data, key []byte, l int) []byte {
 		binary.LittleEndian.PutUint32(combined[0:4], n1)
 		binary.LittleEndian.PutUint32(combined[4:8], n2)
 
-		n1, n2 = BlockEncryptParts(combined, key, 16)
+		n1, n2 = parts(combined, key, 16)
 	}
 
-	result := make([]byte, 8)
-	binary.LittleEndian.PutUint32(result[0:4], n1)
-	binary.LittleEndian.PutUint32(result[4:8], n2)
-
 	byteLen := (l + 7) / 8
+
+	result := make([]byte, 4)
+	binary.BigEndian.PutUint32(result, n1)
 	return result[:byteLen]
 }
 

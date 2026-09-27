@@ -14,11 +14,11 @@ func Gamma(iv []byte, key []byte, length int) []byte {
 
 	gamma := make([]byte, 0, length)
 	for len(gamma) < length {
-		n3 = n3 + 0x1010101B // mod 2^32
+		n3 = n3 + 0x01010101 // mod 2^32
 
 		// mod 2^32-1
-		n4 = n4 + 0x10101041
-		if n4 < 0x10101041 { // overflow
+		n4 = n4 + 0x01010104
+		if n4 < 0x01010104 { // overflow
 			n4++
 		}
 		if n4 == 0xFFFFFFFF {

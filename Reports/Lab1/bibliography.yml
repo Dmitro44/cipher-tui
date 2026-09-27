@@ -22,14 +22,14 @@ gost34122015:
   date: 2015
   language: ru
 
-# rfc5830:
-#   type: Web
-#   title:
-#     value: "Use of the GOST 28147-89, GOST R 34.11-94, GOST R 34.10-94, and GOST R 34.10-2001 Algorithms in the Secure Shell (SSH) Transport Protocol : RFC 5830"
-#     short: ""
-#   author: ["Leontiev, A.", "Chuprina, G."]
-#   date: 2010
-#   url:
-#     value: https://datatracker.ietf.org/doc/html/rfc5830
-#     date: 2025-10-01
-#   language: en
+rfc7836:
+  type: Web
+  title:
+    value: "Cryptographic Algorithms for GOST : RFC 7836"
+    short: ""
+  author: ["Smyshlyaev, S.", "Alekseev, E.", "Oshkin, I.", "Popov, V.", "Leontiev, S."]
+  date: 2016
+  url:
+    value: https://datatracker.ietf.org/doc/html/rfc7836
+    date: 2026-09-27
+  language: en

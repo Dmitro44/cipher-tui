@@ -215,22 +215,25 @@ func (p *CipherPane) run() {
 			p.Output.SetValue("Error reading file: " + err.Error())
 			return
 		}
-		inputSource, err = hex.DecodeString(string(content))
-		if err != nil {
-			p.Output.SetValue("Cannot decode bytes from file")
-			return
+		if decrypt {
+			inputSource, err = hex.DecodeString(strings.TrimSpace(string(content)))
+			if err != nil {
+				p.Output.SetValue("File must contain hex ciphertext")
+				return
+			}
+		} else {
+			inputSource = content
 		}
 	} else {
-		inputSource = []byte(strings.TrimSpace(p.Input.Value()))
-	}
-
-	if decrypt && p.InputMode == ManualInput {
-		decoded, err := hex.DecodeString(strings.TrimSpace(p.Input.Value()))
-		if err != nil {
-			p.Output.SetValue("Ciphertext must be hex (copy output from encrypt)")
-			return
+		if decrypt {
+			decoded, err := hex.DecodeString(strings.TrimSpace(p.Input.Value()))
+			if err != nil {
+				return
+			}
+			inputSource = decoded
+		} else {
+			inputSource = []byte(p.Input.Value())
 		}
-		inputSource = decoded
 	}
 
 	if len(inputSource) < 8 {

@@ -60,14 +60,12 @@ func f(left uint32, subkey uint32) uint32 {
 	for i := range 8 {
 		// 4 bits
 		x := uint8((s >> (4 * i)) & 0xF)
-
 		replaced := sbox[i][x]
 
 		result |= uint32(replaced) << (4 * i)
 	}
 
 	result = bits.RotateLeft32(result, 11)
-
 	return result
 }
 

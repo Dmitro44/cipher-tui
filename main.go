@@ -13,8 +13,11 @@ import (
 
 func main() {
 	gost := cipher.NewGost()
+	belt := cipher.NewBelt()
+
 	m := ui.NewModel(
 		ui.Tab{Title: gost.Name(), Pane: cipherpane.NewCipherPane(gost)},
+		ui.Tab{Title: belt.Name(), Pane: cipherpane.NewCipherPane(belt)},
 	)
 
 	if _, err := tea.NewProgram(

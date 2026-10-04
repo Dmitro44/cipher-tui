@@ -1,0 +1,33 @@
+stb3410131:
+  type: Misc
+  title:
+    value: "Информационные технологии. Защита информации. Криптографические алгоритмы шифрования и контроля целостности : СТБ 34.101.31-2011. – Введ. 01.06.2012"
+    short: ""
+  page-total: 23
+  publisher:
+    name: Госстандарт
+    location: Минск
+  date: 2011
+  language: ru
+
+stb34101312020:
+  type: Misc
+  title:
+    value: "Информационные технологии и безопасность. Алгоритмы шифрования и контроля целостности : СТБ 34.101.31-2020. – Введ. 01.09.2021"
+    short: ""
+  page-total: 40
+  publisher:
+    name: Госстандарт
+    location: Минск
+  date: 2020
+  language: ru
+
+apmi2011:
+  type: Web
+  title:
+    value: "СТБ 34.101.31-2011. Криптографические алгоритмы шифрования и контроля целостности (полный текст)"
+    short: ""
+  url:
+    value: https://apmi.bsu.by/assets/files/std/belt-spec27.pdf
+    date: 2026-09-15
+  language: ru
